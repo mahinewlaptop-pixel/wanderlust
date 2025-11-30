@@ -1,0 +1,82 @@
+<% layout("/listings/boilerplate")%>
+<body>
+  <div class="row">
+    <div class="col-8 offset-2">
+        <form method="post" action="/listing/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+            <br><br>
+    <h4>Updating the details that id Is : <i><%= listing._id %></i></h4>
+    <br />
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <textarea type="text" name="listing[title]" class="form-control" required>
+ <%= listing.title %> </textarea
+      >
+      <div class="invalid-feedback">Please Enter valid Title</div>
+      <br /><br />
+    </div>
+    
+    
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        type="text"
+        name="listing[description]"
+        rows="10"
+        cols="50"
+        class="form-control"
+        required
+      >
+ <%= listing.description %> </textarea
+      ><br /><br />
+    </div>
+    <h5>Original Listing Image</h5>
+    <div class="mb-3">
+      <img src = <%= originalImageUrl %> alt="Image" />
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Upload New Image</label>
+      <input type="file" name="listing[image]" class="form-control" required  ><br /><br />
+    </div>
+    <div class="row">
+        <div class="mb-3 col-4">
+      <label for="price" class="form-label">Price</label>
+      &#8377;<input
+        type="number"
+        class="form-control"
+        required
+        name="listing[price]"
+        value=<%=listing.price %>
+        
+      />
+            <div class="invalid-feedback">Please Enter valid price</div>
+            </div>
+        <div class="mb-3 col-md-8">
+      <label for="country" class="form-label">Country</label>
+      <textarea
+        type="text"
+        name="listing[country]"
+        class="form-control"
+        required
+      > <%=listing.country%></textarea>
+    </div>
+    
+    </div>
+    
+    
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <textarea
+        type="text"
+        name="listing[location]"
+        class="form-control"
+        required
+      ><%=listing.location%></textarea><br /><br />
+    </div>
+    <br /><br />
+    <button class="btn btn-dark">Update</button>
+    <br><br><br>
+  </form>
+    </div>
+  </div>
+  <!-- <script src="/js/script.js"></script> -->
+</body>
